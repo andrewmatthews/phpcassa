@@ -25,15 +25,10 @@ class MapType extends CassandraType
     }
 
     public function unpack($data, $is_name=true) {
-		for ( $i = 0, $cnt = strlen($data); $i < $cnt; $i++ )
-		{
-			echo "{$data[$i]}: ". bin2hex($data[$i]) ."\n";
-		}
-		
-		$bytes			= unpack("Chi/Clow", substr($data, 0, 2));
+        $bytes			= unpack("Chi/Clow", substr($data, 0, 2));
         $num_elements	= $bytes["hi"]*256 + $bytes["low"];
-		
-		$data	= substr($data, 2);
+        $data	= substr($data, 2);
+        
         $components = array();
 		for ( $i = 0; $i < $num_elements; $i++ ) {
 			// Extract map key

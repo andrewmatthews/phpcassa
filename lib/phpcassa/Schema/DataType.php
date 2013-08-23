@@ -82,7 +82,7 @@ class DataType
             return new CompositeType(self::get_inner_types($typestr));
         } else if (strpos($typestr, 'ReversedType') !== false) {
             return self::get_type_for(self::get_inner_type($typestr));
-		} else if (strpos($typestr, 'MapType') !== false) {
+        } else if (strpos($typestr, 'MapType') !== false) {
             return new MapType(self::get_inner_types($typestr));
         } else {
             $type_name = self::extract_type_name($typestr);
